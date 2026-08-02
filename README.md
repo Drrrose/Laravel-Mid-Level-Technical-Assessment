@@ -134,6 +134,18 @@ The task is marked as notified so you only get one notification per task. Notifi
 
 Import `postman/laravel-task-management.postman_collection.json`. Login/register requests store the token automatically and all other requests use it.
 
+## Docker
+
+Requires Docker with Compose.
+
+```bash
+docker compose build
+docker compose run --rm app php artisan migrate --seed
+docker compose up -d
+```
+
+App is served at `http://localhost:8080`. The compose stack runs the web server, MySQL, a queue worker, and the scheduler (for overdue task notifications).
+
 ## Tests
 
 ```bash
